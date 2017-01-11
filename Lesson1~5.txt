@@ -1,0 +1,56 @@
+lesson 1 Create Project Sunshine
+ - Target Version, Min Version
+(타겟은 앱실행할 버젼, min은 최소 라이브러리 수준)
+ - android Software Stack
+(리눅스 - 라이브러리 - 프레임워크 - 어플)
+ - Activities, Packages, and Layout
+(액티비티는 하나의 유저가 사용하는 단위)
+ - TextView 사용 (id 부여 밑 찾고 setText)
+ - ScrollView 사용 (TextView 감싸기)
+ - Responsive Design
+lesson 2 Connect to the Internet
+ - Logging (로그출력)
+ - github repository search
+ - Resources (res / values / strings 사용)
+ - menu 사용 (res 하위 menu.xml  생성 및 item 추가)
+ - Thread, AsyncTask
+(인터넷 연결하는동안 액티비티가 멈추기때문에 백그라운드 실행한다.
+ui도 도중도중 바꿔야 한다 onPreExecute doInBackground onPostExecute onUpdate)
+ - permissions
+(
+ - JSON Format, Using JSON in java
+ - build URL HTTP
+(Uri uri = Uri.parse();
+URL url = URL(uri.toString());lesson 3 Recycler View - why Recycler View
+(내용을 다 가지고 있기에는 메모리 부족이 발생) - How Recycler View Works ( Adapter, Holder 의 하는일, 코딩 방식)
+(Adapter 를 상속받아 생성
+onCreateViewHolder override
+내부에서 viewHolder 상속해서 만든 ViewHolder를 생성해 리턴
+obBindViewHolder override
+내 리스트가 가질 아이템 집어넣기
+getItemCount override
+개수 오버라이딩) - OnItemClickHanlder 적용 방식
+(ItemClickListener interface 생성holder에 onclick override한 후에
+getAdapterPosition();을 실행해 index를 가져온다.
+그 후 interface에 있는 onClickHandler 실행한다.
+activity에서 onClickHandler 를 new로 생성해 set해준다(생성자 할때 넣어주거나) 혹은 udacity에서는 implements한 뒤에 onClickHandler를 override하고 this를 넣어 set해주었다.)
+ lesson 4 Intents - Intents 역할
+ - explicit Intents
+ - startNewActivity
+ - Intent extras (Activity간 정보 교환)
+ - implicit Intents
+ - how to make Implicit Intents
+lesson 5 LifeCycle
+ - android activity lifecycle (onCreate, onpuase 등)
+ - onSaveInstanceState (쓰는 이유 및 사용 방법)
+ - AsyncTaskLoader (쓰는 이유 및 사용 방법)
+(Activity 에 LoaderCallbacks<처리할 자료형>을 implement 한다.
+OnCreateLoader, onLoadFinished, onLoaderReset을 오버라이드 한다.
+AsyncTaskLoader를 만드는데
+-onStartLoading = onPreExecute
+-loadInBackground = doInBackground
+-deliverResult는 onStartLoading에서 데이터 저장용으로 쓰인다.
+를 포함한다.
+onloaderFinished = onPostExecute이다.
+getSupportLoaderManager.initLoader(id, bundle, callback)으로 실행
+.restartLoadr로 재시행
